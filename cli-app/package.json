@@ -4,22 +4,18 @@
     "email": "diversemix@gmail.com"
   },
   "bin": {
-    "cli-app": "lib/index.js"
+    "cli-app": "src/index.js"
   },
   "bugs": {
     "url": "https://github.com/diversemix/node-seeds/issues"
   },
-  "dependencies": {
-    "colors": "^1.3.2",
-    "yargs": "^12.0.2"
-  },
+  "dependencies": {},
   "deprecated": false,
   "description": "Seed app for CLI.",
   "devDependencies": {
-    "jest": "^23.6.0",
     "prettier": "^1.15.2",
-    "eslint": "^4.12.0",
-    "lint-staged": "^7.2.2"
+    "should": "^13.2.3",
+    "should-spies": "^1.1.0"
   },
   "homepage": "https://diversemix.github.io",
   "keywords": [
@@ -29,34 +25,15 @@
     "node-cli"
   ],
   "license": "MIT",
-  "main": "lib/index.js",
+  "main": "src/index.js",
   "name": "cli-app",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/diversemix/node-seeds.git"
   },
   "scripts": {
-    "lint": "eslint .",
-    "precommit": "lint-staged",
-    "postversion": "git push && git push --tags",
-    "preversion": "npm run lint",
-    "test": "jest --config jestconfig.json"
+    "test": "find src -name '*test.js' -exec node {} \\;",
+    "start": "node src/index.js say hello-world -v"
   },
-  "lint-staged": {
-    "*.js": [
-      "prettier --write",
-      "eslint --fix",
-      "git add"
-    ],
-    "*.{json,md}": [
-      "prettier --write",
-      "git add"
-    ],
-    "package.json": [
-      "format-package -w",
-      "git add"
-    ]
-  },
-  "types": "lib/index.d.ts",
   "version": "1.0.2"
 }

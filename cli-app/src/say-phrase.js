@@ -1,6 +1,6 @@
 
 class SayPhrase {
-  say(phrase) {
+  static say(phrase) {
     console.log(phrase)
   }
 }
