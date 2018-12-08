@@ -1,7 +1,7 @@
 #!/usr/bin/env node
-'use strict'
-var yargs = require('yargs')
-var colors = require('colors/safe')
+const yargs = require('yargs')
+const colors = require('colors/safe')
+const SayPhrase = require('./say-phrase')
 
 yargs
   .option('verbose', {
@@ -17,7 +17,10 @@ yargs
   }, (argv) => {
     if (argv.verbose)
       console.info(colors.yellow('Starting...'))
-    console.log(argv.phrase)
+
+    const sp = new SayPhrase()
+    sp.say(argv.phrase)
+
     if (argv.verbose)
       console.info(colors.yellow('...Done!'))
   })
