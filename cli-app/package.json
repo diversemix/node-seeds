@@ -13,7 +13,6 @@
   "deprecated": false,
   "description": "Seed app for CLI.",
   "devDependencies": {
-    "prettier": "^1.15.2",
     "should": "^13.2.3",
     "should-spies": "^1.1.0"
   },
@@ -33,6 +32,7 @@
   },
   "scripts": {
     "test": "find src -name '*test.js' -exec node {} \\;",
+    "test:watch": "fswatch  -xo --event Updated ~ ./src/ | xargs -I{} npm run test",
     "start": "node src/index.js say hello-world -v"
   },
   "version": "1.0.2"
